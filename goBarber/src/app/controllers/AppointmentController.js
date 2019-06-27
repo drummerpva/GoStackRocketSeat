@@ -50,6 +50,13 @@ class AppointmentController {
 
     const { provider_id, date } = req.body;
 
+    /**
+     * Check self appointment
+     */
+    if (req.userId === provider_id) {
+      return res.status(400).json({ error: 'Imposible self appointment' });
+    }
+
     /*
     Check if provider_id is a provider
     */
@@ -100,7 +107,7 @@ class AppointmentController {
     /**
      * Notify appointment provider
      */
-    const user = User.findByPk(req.userId);
+    const user = await User.findByPk(req.userId);
     const formattedDate = format(
       hourStart,
       "'dia' dd 'de' MMMM', às' H:mm'h'",
@@ -108,11 +115,15 @@ class AppointmentController {
     );
 
     await Notification.create({
-      content: `Novo agendamento de ${user.name} para dia ${formattedDate}`,
+      content: `Novo agendamento de ${user.name} para ${formattedDate}`,
       user: provider_id,
     });
 
     return res.json(appointment);
+  }
+
+  async delete(req, res) {
+    return res.json();
   }
 }
 
