@@ -1,0 +1,1 @@
+react-native init --version 0.59.9 nomedoprojeto
