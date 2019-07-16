@@ -4,7 +4,7 @@ import reactotronSaga from 'reactotron-redux-saga';
 
 if (process.env.NODE_ENV === 'development') {
   const tron = Reactotron.configure({
-    host: '192.168.0.110',
+    host: '127.0.0.1',
     port: 9090,
   })
     .use(reactotronRedux())
