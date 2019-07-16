@@ -4,8 +4,8 @@ import Route from './Route';
 
 import SignIn from '~/pages/SignIn';
 import SignUp from '~/pages/SignUp';
-import Profile from '~/pages/Profile';
 import Dashboard from '~/pages/Dashboard';
+import Profile from '~/pages/Profile';
 
 export default function Routes() {
   return (
