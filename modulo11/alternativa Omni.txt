@@ -1,0 +1,2 @@
+git clone https://github.com/Rocketseat/omni-cli-web web
+git clone https://github.com/Rocketseat/omni-cli-server-express server
